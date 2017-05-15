@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Use Me</string>
+    <string name="app_description">A Daily Utility App Featuring in Flashlight, Pedometer, and Compass</string>
+    <string name="flashlight">Flash Light</string>
+    <string name="pedometer">Pedometer</string>
+    <string name="compass">Compass</string>
+</resources>
