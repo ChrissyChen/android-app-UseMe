@@ -4,4 +4,6 @@
     <string name="flashlight">Flash Light</string>
     <string name="pedometer">Pedometer</string>
     <string name="compass">Compass</string>
+    <string name="start_button">Start</string>
+    <string name="stop_button">Stop</string>
 </resources>
