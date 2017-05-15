@@ -13,13 +13,6 @@
     tools:context="project.csc780.xinlu.useme.MainActivity"
     android:weightSum="1">
 
-
-    <!--<ImageView-->
-        <!--android:id="@+id/imageView"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="135dp"-->
-        <!--app:srcCompat="@drawable/logo_high"-->
-        <!--android:layout_weight="0.01" />-->
     <ImageView
         android:id="@+id/imageView"
         android:layout_height="135dp"
