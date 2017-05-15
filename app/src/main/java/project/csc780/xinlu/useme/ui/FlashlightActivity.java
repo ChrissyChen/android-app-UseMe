@@ -1,13 +1,15 @@
-package project.csc780.xinlu.useme;
+package project.csc780.xinlu.useme.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import project.csc780.xinlu.useme.R;
 
 /**
  * Created by Xinlu Chen on 5/14/17.
  */
 
-public class CompassActivity extends AppCompatActivity {
+public class FlashlightActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
