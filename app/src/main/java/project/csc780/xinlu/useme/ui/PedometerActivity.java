@@ -1,4 +1,4 @@
-package project.csc780.xinlu.useme;
+package project.csc780.xinlu.useme.ui;
 
 import android.content.Intent;
 import android.hardware.Sensor;
@@ -7,13 +7,14 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import project.csc780.xinlu.useme.R;
 
 /**
  * Created by Xinlu Chen on 5/13/17.
