@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
-import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -30,16 +29,16 @@ public class FlashlightActivity extends AppCompatActivity {
     private CameraManager mCameraManager;
     private String mCameraId;
     private ImageView mFlashlightImageView;
-    private MediaPlayer mMediaPlayer;
-    private Boolean isTorchOn;
+    private Boolean isLightOn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashlight);
-        mFlashlightImageView = (ImageView) findViewById(R.id.flashlightImageView);
-        isTorchOn = false;
-        //Check if device contains flashlight
+        mFlashlightImageView = (ImageView) findViewById(R.id.flashlightOffImageView);
+        isLightOn = false;
+
+        //Check if device contains flashlight_on
         Boolean isFlashAvailable = getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
         if (!isFlashAvailable) {
             AlertDialog alert = new AlertDialog.Builder(FlashlightActivity.this).create();
@@ -58,14 +57,14 @@ public class FlashlightActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    if (isTorchOn) {
+                    if (isLightOn) {
                         turnOffLight();
                         Log.d(TAG, "turn off light");
-                        isTorchOn = false;
+                        isLightOn = false;
                     } else {
                         turnOnLight();
                         Log.d(TAG, "turn on light");
-                        isTorchOn = true;
+                        isLightOn = true;
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -85,7 +84,7 @@ public class FlashlightActivity extends AppCompatActivity {
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 mCameraManager.setTorchMode(mCameraId, true);
-                //mFlashlightImageView.setImageResource(R.drawable.on);
+                mFlashlightImageView.setImageResource(R.drawable.flashlight_on);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -96,7 +95,7 @@ public class FlashlightActivity extends AppCompatActivity {
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 mCameraManager.setTorchMode(mCameraId, false);
-                //mFlashlightImageView.setImageResource(R.drawable.off);
+                mFlashlightImageView.setImageResource(R.drawable.flashlight_off);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -106,21 +105,21 @@ public class FlashlightActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        if (isTorchOn) {
+        if (isLightOn) {
             turnOffLight();
         }
     }
     @Override
     protected void onPause() {
         super.onPause();
-        if (isTorchOn) {
+        if (isLightOn) {
             turnOffLight();
         }
     }
     @Override
     protected void onResume() {
         super.onResume();
-        if (isTorchOn) {
+        if (isLightOn) {
             turnOnLight();
         }
     }
