@@ -37,17 +37,6 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         mSensorOrientation = mSensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION);
         mSensorManager.registerListener(this, mSensorOrientation, SensorManager.SENSOR_DELAY_UI);
-
-//        LinearLayout layout = new LinearLayout(CompassActivity.this);
-//        ImageView imageView = new ImageView(this);
-//        imageView.setImageURI(Uri.fromFile(new File("/data/data/....")));
-//        LinearLayout.LayoutParams params =
-//                new LinearLayout.LayoutParams( LinearLayout.LayoutParams.MATCH_PARENT,
-//                        LinearLayout.LayoutParams.WRAP_CONTENT);
-//        params.gravity = Gravity.CENTER;
-//        layout.addView(imageView, params);
-//        setContentView(layout);
-        //setContentView(R.layout.activity_compass);
         setContentView(mCompassView);
 
     }
